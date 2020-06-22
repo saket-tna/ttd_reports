@@ -1,0 +1,43 @@
+Advertiser Id
+Insertion Order Id
+Campaign Group Id
+Campaign Id
+Pixel Id
+Date
+Geo Country
+Geo Region Name
+Country
+State
+City Region
+City Name
+Postal Code
+Geo DMA
+Impressions
+Clicks
+Conversions
+Browser Name
+Creative Area
+Creative Id
+Device Make Name
+Device Model Name
+DeviceType
+Isp Name
+Os Family
+Os Name
+Time Zone
+Cost
+Time of day
+Weekday
+Site Domain
+Site Domain category
+Audience Category
+Audience Segment Name Short
+Gender Audience Name
+Income Audience Name
+Segment User Count
+Audience User Total Count
+Reached User Count
+Segment Name
+Day Hour
+Total Daily Unique
+Total Loads
