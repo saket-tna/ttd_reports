@@ -36,6 +36,7 @@ drop table if exists saket.ttd_geo_report_final;
 create external table saket.ttd_geo_report_final(
   campaign_group_id string,
   insertion_order_id string,
+  metro_code int,
   city string,
   region string,
   geo_country string,

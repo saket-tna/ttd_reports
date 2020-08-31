@@ -7,6 +7,7 @@ create external table saket.ttd_geo_report(
   country string,
   region string,
   `date` string,
+  metro_code int,
   advertiser_cost double,
   conversions bigint,
   clicks bigint,
@@ -28,7 +29,7 @@ drop table if exists saket.ttd_geo_report_tmp;
 create table saket.ttd_geo_report_tmp(
   campaign_group_id string,
   insertion_order_id string,
-  day_numeric string,
+  metro_code int,
   city string,
   region string,
   geo_country string,
@@ -36,14 +37,15 @@ create table saket.ttd_geo_report_tmp(
   clicks bigint,
   impressions bigint,
   conversions bigint,
-  advertiser_id string
+  advertiser_id string,
+  day_numeric string
 );
 
 insert overwrite table saket.ttd_geo_report_tmp
 select
   adgroup_id as campaign_group_id,
   campaign_id as insertion_order_id,
-  to_date(`date`) as day_numeric,
+  metro_code,
   city,
   region,
   country as geo_country,
@@ -51,12 +53,14 @@ select
   sum(clicks) as clicks,
   sum(impressions) as impressions,
   sum(conversions) as conversions,
-  advertiser_id
+  advertiser_id,
+  to_date(`date`) as day_numeric
 from saket.ttd_geo_report
 group by
   advertiser_id,
   adgroup_id,
   campaign_id,
+  metro_code,
   to_date(`date`),
   city,
   region,
